@@ -1,0 +1,9 @@
+{
+  "tasks": {},
+  "imports": {},
+
+  "name": "@vikoch/resultfier",
+  "version": "0.1.0",
+  "exports": "./mod.ts",
+  "license": "MIT"
+}
