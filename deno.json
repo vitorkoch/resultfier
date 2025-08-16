@@ -1,6 +1,6 @@
 {
   "name": "@vikoch/resultfier",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A TypeScript library implementing the Result pattern with OOP approach and excellent type safety",
   "license": "MIT",
   "repository": {
