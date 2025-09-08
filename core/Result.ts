@@ -5,7 +5,7 @@ import type { Ok } from "./Ok.ts";
  * Represents a Result type that can either be a success (Ok) or an error (Err).
  * This is an abstract base class that provides common functionality for both variants.
  */
-export abstract class Result<T, E> {
+export abstract class ResultBase<T, E> {
   /**
    * Type guard to check if the result is an Ok variant.
    */
@@ -70,7 +70,7 @@ export abstract class Result<T, E> {
 /**
  * Type alias for a Result that can be either Ok<T> or Err<E>.
  */
-export type ResultType<T, E> = Ok<T> | Err<E>;
+export type Result<T, E> = Ok<T> | Err<E>;
 
 /**
  * Type alias for an async Result (Promise-wrapped Result).

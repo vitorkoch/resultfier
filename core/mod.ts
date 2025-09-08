@@ -1,3 +1,3 @@
-export * from "./Err.ts";
-export * from "./Ok.ts";
-export * from "./Result.ts";
+export { err, isErr, type Err } from "./Err.ts";
+export { ok, isOk, type Ok } from "./Ok.ts";
+export type { Result, AsyncResult } from "./Result.ts";

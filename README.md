@@ -22,8 +22,8 @@ TypeScript applications.
 # Using Deno
 deno add @vikoch/resultfier
 
-# Using npm/yarn (when JSR supports it)
-npm install @vikoch/resultfier
+# Using npm
+npx jsr install @vikoch/resultfier
 ```
 
 ### From Source
@@ -56,11 +56,10 @@ if (isErr(errorResult)) {
 
 ### Core Types
 
-- `Result<T, E>` - Abstract base class for Result types
+- `Result<T, E>` - Union type of `Ok<T> | Err<E>`
 - `Ok<T>` - Success variant containing a value of type T
 - `Err<E>` - Error variant containing an error of type E
-- `ResultType<T, E>` - Union type of Ok<T> | Err<E>
-- `AsyncResult<T, E>` - Promise-wrapped Result
+- `AsyncResult<T, E>` - Promise-wrapped Result (`Promise<Result<T, E>>`)
 
 ### Constructor Functions
 
@@ -292,7 +291,7 @@ deno task lint
 ```
 resultfier/
 ├── core/           # Core implementation
-│   ├── Result.ts   # Abstract base class
+│   ├── Result.ts   # Core Result types
 │   ├── Ok.ts       # Success variant
 │   ├── Err.ts      # Error variant
 │   └── mod.ts      # Core exports

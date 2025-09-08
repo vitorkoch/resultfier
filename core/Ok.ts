@@ -1,9 +1,9 @@
-import { Result } from "./Result.ts";
+import { type Result, ResultBase } from "./Result.ts";
 
 /**
  * Represents a successful result containing a value.
  */
-export class Ok<T> extends Result<T, never> {
+export class Ok<T> extends ResultBase<T, never> {
   readonly _tag = "ok" as const;
   readonly isOk = true;
   readonly isErr = false;

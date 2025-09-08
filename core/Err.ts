@@ -1,9 +1,9 @@
-import { Result } from "./Result.ts";
+import { type Result, ResultBase } from "./Result.ts";
 
 /**
  * Represents an error result containing an error value.
  */
-export class Err<E> extends Result<never, E> {
+export class Err<E> extends ResultBase<never, E> {
   readonly _tag = "err" as const;
   readonly isOk = false;
   readonly isErr = true;
