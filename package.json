@@ -1,0 +1,32 @@
+{
+  "name": "resultfier",
+  "version": "0.1.1",
+  "description": "A TypeScript implementation of Rust-like Result type for better error handling",
+  "type": "module",
+  "scripts": {
+    "build": "tsup",
+    "prepublishOnly": "${npm_execpath} run build"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "author": "Vitor Koch <vitorgabrielkoch@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vitorkoch/resultfier.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vitorkoch/resultfier/issues"
+  },
+  "homepage": "https://github.com/vitorkoch/resultfier#readme",
+  "devDependencies": {
+    "@changesets/cli": "^2.29.7",
+    "@types/bun": "latest",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.2"
+  }
+}

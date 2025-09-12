@@ -1,4 +1,4 @@
-import { type Result, ResultBase } from "./Result.ts";
+import { type Result, ResultBase } from "./result";
 
 /**
  * Represents an error result containing an error value.
@@ -13,7 +13,7 @@ export class Err<E> extends ResultBase<never, E> {
   }
 
   /**
-   * Maps the value type, but since this is Err, it's a no-op.
+   * Maps the value type, but since this is `Err`, it's a no-op.
    */
   map<U>(_fn: (value: never) => U): Err<E> {
     return this;
@@ -21,14 +21,14 @@ export class Err<E> extends ResultBase<never, E> {
 
   /**
    * Maps the contained error using the provided function.
-   * Since this is Err, the function is always applied.
+   * Since this is `Err`, the function is always applied.
    */
   mapErr<F>(fn: (error: E) => F): Err<F> {
     return new Err(fn(this.error));
   }
 
   /**
-   * Throws an error since this is Err, not Ok.
+   * Throws an error since this is `Err`, not `Ok`.
    */
   unwrap(): never {
     throw new Error(`Called unwrap() on an Err value: ${this.error}`);
@@ -42,7 +42,7 @@ export class Err<E> extends ResultBase<never, E> {
   }
 
   /**
-   * Returns the provided default value since this is Err.
+   * Returns the provided default value since this is `Err`.
    */
   unwrapOr<T>(defaultValue: T): T {
     return defaultValue;
@@ -56,14 +56,14 @@ export class Err<E> extends ResultBase<never, E> {
   }
 
   /**
-   * Returns this Err unchanged since there's no value to chain.
+   * Returns this `Err` unchanged since there's no value to chain.
    */
   andThen<U>(_fn: (value: never) => Result<U, E>): Err<E> {
     return this;
   }
 
   /**
-   * Always returns false since this is Err, not Ok.
+   * Always returns false since this is `Err`, not `Ok`.
    */
   contains(_value: never): boolean {
     return false;
@@ -78,14 +78,15 @@ export class Err<E> extends ResultBase<never, E> {
 }
 
 /**
- * Creates a new Err result with the given error.
+ * Creates a new `Err` result with the given error.
  */
 export function err<E>(error: E): Err<E> {
   return new Err(error);
 }
 
 /**
- * Type guard to check if a result is Err.
+ * Type guard to check if a result is `Err`.
+ * @deprecated use `.isErr` instead
  */
 export function isErr<T, E>(result: Result<T, E>): result is Err<E> {
   return result.isErr;

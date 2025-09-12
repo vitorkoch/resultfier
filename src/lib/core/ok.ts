@@ -1,4 +1,4 @@
-import { type Result, ResultBase } from "./Result.ts";
+import { type Result, ResultBase } from "./result";
 
 /**
  * Represents a successful result containing a value.
@@ -14,14 +14,14 @@ export class Ok<T> extends ResultBase<T, never> {
 
   /**
    * Maps the contained value using the provided function.
-   * Since this is Ok, the function is always applied.
+   * Since this is `Ok`, the function is always applied.
    */
   map<U>(fn: (value: T) => U): Ok<U> {
     return new Ok(fn(this.value));
   }
 
   /**
-   * Maps the error type, but since this is Ok, it's a no-op.
+   * Maps the error type, but since this is `Ok`, it's a no-op.
    */
   mapErr<F>(_fn: (error: never) => F): Ok<T> {
     return this;
@@ -70,22 +70,23 @@ export class Ok<T> extends ResultBase<T, never> {
   }
 
   /**
-   * Always returns false since this is Ok, not Err.
+   * Always returns false since this is `Ok`, not `Err`.
    */
-  containsErr(_error: never): boolean {
+   override containsErr(_error: never): false {
     return false;
   }
 }
 
 /**
- * Creates a new Ok result with the given value.
+ * Creates a new `Ok` result with the given value.
  */
 export function ok<T>(value: T): Ok<T> {
   return new Ok(value);
 }
 
 /**
- * Type guard to check if a result is Ok.
+ * Type guard to check if a result is `Ok`.
+ * @deprecated use `.isOk` instead
  */
 export function isOk<T, E>(result: Result<T, E>): result is Ok<T> {
   return result.isOk;
