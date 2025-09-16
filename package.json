@@ -1,6 +1,6 @@
 {
   "name": "resultfier",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "A TypeScript implementation of Rust-like Result type for better error handling",
   "type": "module",
   "main": "./dist/index.js",
