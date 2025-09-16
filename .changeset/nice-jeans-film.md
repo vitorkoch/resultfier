@@ -1,0 +1,5 @@
+---
+"resultfier": minor
+---
+
+fix exports
